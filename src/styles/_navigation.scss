@@ -1,0 +1,125 @@
+.navigation{
+    display: flex;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    background-color: #fff;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 60px;
+    &__logo{
+        margin-left: 5%;
+        user-select: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &--icon{
+            background-image: url(../images/logo.png);
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 35px;
+            height: 35px;
+        }
+        &--title{
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 12px;
+            margin-left: 8px;
+            & span{
+                display: block;
+                margin-left: 20px;
+            }
+        }
+    }
+    &__menu{
+        margin-right: 8%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        cursor: pointer;
+        height: 20px;
+        &--icon{
+            width: 15px;
+            height: 2px;
+            background-color: #000;
+            position: relative;
+            &::before,&::after{
+                content: '';
+                position: absolute;
+                width: 15px;
+                height: 2px;
+                background-color: #000;
+            }
+            &::before{
+                top: 5px;
+            }
+            &::after{
+                bottom: 5px;
+            }
+        }
+    }
+    &__modal{
+        position: absolute;
+        display: flex;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        &--menu{
+            overflow: hidden;
+            position: absolute;
+            transition: .7s;
+            right: 0;
+            min-width: 0;
+            width: 0%;
+            height: 100%;
+            background-color: #fff;
+            &-exit{
+                position: absolute;
+                top: 30px;
+                right: 30px;
+                width: 21px;
+                height: 21px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                &::after,&::before{
+                    content: '';
+                    position: absolute;
+                    width: 15px;
+                    height: 2px;
+                    background-color: #000;
+                }
+                &::after{
+                    transform: rotate(45deg);
+                }
+                &::before{
+                    transform: rotate(-45deg);
+                }
+            }
+        }
+        &--curtain{
+            transition: .7s;
+            opacity: 0;
+            width: 100%;
+            z-index: -1;
+            height: 100%;
+            background-color: rgba($color: #000000, $alpha: 0.55);
+        }
+        & .curtainDowned{
+            opacity: 1;
+        }
+        & .menuOpend{
+            width: 15%;
+            min-width: 350px;
+        }
+    }
+}
+.modalOpend{
+    z-index: 100;
+}
